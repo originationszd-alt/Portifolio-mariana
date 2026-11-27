@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Pedagógico | Mariana Aparecida Pereira Kxeiaozek</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans, Fredoka & Caveat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                        script: ['Caveat', 'cursive'],
+                    },
+                    colors: {
+                        navyDeep: '#062147',
+                        royalBlue: '#1651A8',
+                        skyWave: '#A2C7EC',
+                        slideBg: '#EEF5FC',
+                        tileBlue: '#DCEAF9',
+                        outerBlue: '#6C99CD',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Fundo externo em azul atmosférico com textura sutil de grade pontilhada */
+        body {
+            background-color: #6390C6;
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.16) 1.25px, transparent 1.25px),
+                linear-gradient(155deg, #7BA5D6 0%, #6390C6 35%, #4F7DB5 70%, #3F6BA3 100%);
+            background-size: 28px 28px, 100% 100%;
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Estilo padrão de cada Slide individual em tela inteira */
+        .presentation-slide {
+            background-color: #EEF5FC;
+            background-image: radial-gradient(circle at 12% 15%, rgba(255, 255, 255, 0.88) 0%, rgba(238, 245, 252, 0.45) 55%, rgba(220, 234, 249, 0.72) 100%);
+            border-radius: 28px;
+            box-shadow: 0 28px 55px -12px rgba(6, 33, 71, 0.36), 0 0 0 1.5px rgba(255, 255, 255, 0.8) inset;
+            position: relative;
+            z-index: 10;
+            overflow: hidden;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+        }
+
+        .presentation-slide:hover {
+            box-shadow: 0 34px 65px -12px rgba(6, 33, 71, 0.44), 0 0 0 1.5px rgba(255, 255, 255, 0.95) inset;
+        }
+
+        /* Animações suaves */
+        @keyframes pulseStar {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.85; }
+            50% { transform: scale(1.18) rotate(12deg); opacity: 1; }
+        }
+
+        @keyframes floatGentle {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(14px, -18px) scale(1.04); }
+            66% { transform: translate(-10px, 12px) scale(0.97); }
+        }
+
+        @keyframes floatSlowReverse {
+            0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+            50% { transform: translate(-16px, -14px) rotate(6deg); }
+        }
+
+        @keyframes modalEntry {
+            from { opacity: 0; transform: scale(0.95) translateY(16px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .star-pulse {
+            animation: pulseStar 4s ease-in-out infinite;
+        }
+
+        .star-pulse-delay {
+            animation: pulseStar 4.8s ease-in-out 1.5s infinite;
+        }
+
+        .float-gentle {
+            animation: floatGentle 6s ease-in-out infinite;
+        }
+
+        .blob-float {
+            animation: floatSlow 14s ease-in-out infinite;
+        }
+
+        .blob-float-reverse {
+            animation: floatSlowReverse 17s ease-in-out infinite;
+        }
+
+        .modal-animate {
+            animation: modalEntry 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* Scroll Reveal sem travar rolagem */
+        .reveal-slide {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-slide.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-sans text-navyDeep antialiased selection:bg-royalBlue selection:text-white pb-16">
+
+    <!-- =========================================================================
+         CAMADA 1: FUNDO ATMOSFÉRICO FIXO (BLOBS & LUZES SUAVES)
+    ========================================================================== -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+        <!-- Esfera Luminosa Superior Esquerda -->
+        <div class="absolute -top-28 -left-28 w-[420px] h-[420px] rounded-full bg-skyWave/45 blur-3xl blob-float"></div>
+        
+        <!-- Esfera Azul Royal Superior Direita -->
+        <div class="absolute top-1/4 -right-32 w-[480px] h-[480px] rounded-full bg-royalBlue/35 blur-3xl blob-float-reverse"></div>
+        
+        <!-- Brilho Branco Translúcido Central -->
+        <div class="absolute top-1/2 left-1/3 w-[360px] h-[360px] rounded-full bg-white/15 blur-3xl blob-float"></div>
+        
+        <!-- Esfera Profunda Inferior Esquerda -->
+        <div class="absolute -bottom-32 left-10 w-[500px] h-[500px] rounded-full bg-navyDeep/30 blur-3xl blob-float-reverse"></div>
+
+        <!-- Estrelas Fixas nas Bordas Externas -->
+        <svg class="w-8 h-8 text-white/30 absolute top-24 left-6 sm:left-10 star-pulse" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C12 7.5 16.5 12 24 12C16.5 12 12 16.5 12 24C12 16.5 7.5 12 0 12C7.5 12 12 7.5 12 0Z"/>
+        </svg>
+        <svg class="w-6 h-6 text-white/25 absolute bottom-20 right-6 sm:right-12 star-pulse-delay" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C12 7.5 16.5 12 24 12C16.5 12 12 16.5 12 24C12 16.5 7.5 12 0 12C7.5 12 12 7.5 12 0Z"/>
+        </svg>
+    </div>
+
+    <!-- =========================================================================
+         CAMADA 2: ELEMENTOS ROLÁVEIS DO FUNDO AZUL (ONDAS, LINE-ART & ESTRELAS)
+    ========================================================================== -->
+    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+        
+        <!-- Onda Panorâmica entre Slide 1 e Slide 2 -->
+        <svg class="w-full h-64 absolute top-[88vh] left-0 opacity-45" viewBox="0 0 1440 240" fill="none" preserveAspectRatio="none">
+            <path d="M0 120C280 30 560 210 880 120C1140 48 1310 90 1440 130V240H0V120Z" fill="#A2C7EC" fill-opacity="0.35"/>
+            <path d="M0 155C340 85 680 225 1040 135C1240 85 1360 115 1440 145" stroke="rgba(255,255,255,0.28)" stroke-width="2" fill="none"/>
+        </svg>
+
+        <!-- Line-Art Minimalista Lateral Esquerda (Aviãozinho de Papel Tracejado) -->
+        <svg class="w-44 h-44 absolute top-[135vh] -left-6 xl:left-4 text-white/25 float-gentle hidden md:block" viewBox="0 0 200 200" fill="none">
+            <path d="M22 148C56 142 84 118 96 92" stroke="currentColor" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round"/>
+            <path d="M104 74L168 46L134 112L122 88L104 74Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M168 46L122 88V108L132 94" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- Estrelas & Espiral Orgânica Lateral Direita (Altura do Slide 3) -->
+        <svg class="w-48 h-48 absolute top-[215vh] -right-8 xl:right-3 text-white/22 blob-float-reverse hidden md:block" viewBox="0 0 200 200" fill="none">
+            <path d="M100 100C106 94 116 96 118 104C121 115 110 126 98 126C81 126 69 111 71 94C74 71 95 56 118 60C147 65 165 94 159 123C152 158 117 180 82 172" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M46 44C46 50 50 54 56 54C50 54 46 58 46 64C46 58 42 54 36 54C42 54 46 50 46 44Z" fill="currentColor"/>
+        </svg>
+
+        <!-- Onda Panorâmica Central entre Slide 3 e Slide 4 -->
+        <svg class="w-full h-72 absolute top-[285vh] left-0 opacity-40" viewBox="0 0 1440 260" fill="none" preserveAspectRatio="none">
+            <path d="M0 90C360 195 720 15 1120 120C1280 162 1380 140 1440 115V260H0V90Z" fill="#1651A8" fill-opacity="0.30"/>
+            <path d="M0 65C380 175 740 -5 1140 105C1290 145 1385 125 1440 100" stroke="rgba(255,255,255,0.24)" stroke-width="2" stroke-dasharray="8 8" fill="none"/>
+        </svg>
+
+        <!-- Line-Art Coração Manuscrito & Centelhas Lateral Esquerda (Altura do Slide 4/5) -->
+        <svg class="w-40 h-40 absolute top-[365vh] -left-4 xl:left-5 text-white/25 star-pulse-delay hidden md:block" viewBox="0 0 160 160" fill="none">
+            <path d="M80 122C80 122 38 93 38 63C38 49 49 39 62 39C70 39 77 44 80 51C83 44 90 39 98 39C111 39 122 49 122 63C122 93 80 122 80 122Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M132 24C132 29 135 32 140 32C135 32 132 35 132 40C132 35 129 32 124 32C129 32 132 29 132 24Z" fill="currentColor"/>
+        </svg>
+
+        <!-- Line-Art Ramo de Folhas Minimalista Lateral Direita (Altura do Slide 5/6) -->
+        <svg class="w-44 h-52 absolute top-[455vh] -right-6 xl:right-4 text-white/22 float-gentle hidden md:block" viewBox="0 0 180 220" fill="none">
+            <path d="M40 190C68 140 104 92 145 36" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M78 134C54 130 42 112 52 94C68 96 80 112 78 134Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M96 108C120 112 136 98 130 78C112 78 98 90 96 108Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M114 82C92 78 82 60 92 44C108 46 116 62 114 82Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- Onda Panorâmica Inferior entre Slide 6 e Slide 7 -->
+        <svg class="w-full h-72 absolute top-[545vh] left-0 opacity-45" viewBox="0 0 1440 260" fill="none" preserveAspectRatio="none">
+            <path d="M0 135C320 40 680 215 1060 110C1250 58 1365 95 1440 125V260H0V135Z" fill="#A2C7EC" fill-opacity="0.32"/>
+            <path d="M0 165C340 70 700 235 1080 130C1260 80 1370 112 1440 140" stroke="rgba(255,255,255,0.26)" stroke-width="2" fill="none"/>
+        </svg>
+
+    </div>
+
+    <!-- =========================================================================
+         BARRA DE NAVEGAÇÃO FLUTUANTE LEVE
+    ========================================================================== -->
+    <header class="sticky top-3 z-40 px-4 sm:px-6 mb-5">
+        <nav class="max-w-6xl mx-auto bg-white/85 backdrop-blur-md border border-white/80 rounded-full px-4 sm:px-6 py-2.5 shadow-lg shadow-navyDeep/15 flex items-center justify-between gap-2">
+            <!-- Identidade Compacta -->
+            <a href="#slide-1" class="flex items-center gap-2.5 group shrink-0">
+                <span class="w-8 h-8 rounded-full bg-navyDeep text-white font-display font-bold text-xs flex items-center justify-center group-hover:bg-royalBlue transition-colors">
+                    MK
+                </span>
+                <span class="font-bold text-xs sm:text-sm text-navyDeep hidden sm:inline">
+                    Mariana Kxeiaozek
+                </span>
+            </a>
+
+            <!-- Links para os 7 Slides -->
+            <div class="flex items-center gap-1.5 sm:gap-4 text-[11px] sm:text-xs font-bold text-navyDeep/80 overflow-x-auto no-scrollbar py-0.5">
+                <a href="#slide-1" class="px-2.5 py-1 rounded-full hover:bg-tileBlue hover:text-royalBlue transition-colors whitespace-nowrap">Capa</a>
+                <a href="#slide-2" class="px-2.5 py-1 rounded-full hover:bg-tileBlue hover:text-royalBlue transition-colors whitespace-nowrap">Sobre</a>
+                <a href="#slide-3" class="px-2.5 py-1 rounded-full hover:bg-tileBlue hover:text-royalBlue transition-colors whitespace-nowrap">Competências</a>
+                <a href="#slide-4" class="px-2.5 py-1 rounded-full hover:bg-tileBlue hover:text-royalBlue transition-colors whitespace-nowrap">Projetos</a>
+                <a href="#slide-5" class="px-2.5 py-1 rounded-full hover:bg-tileBlue hover:text-royalBlue transition-colors whitespace-nowrap">Experiência</a>
+                <a href="#slide-6" class="px-2.5 py-1 rounded-full hover:bg-tileBlue hover:text-royalBlue transition-colors whitespace-nowrap">Atuação</a>
+                <a href="#slide-7" class="px-3 py-1.5 rounded-full bg-navyDeep text-white hover:bg-royalBlue transition-colors whitespace-nowrap shadow-xs">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- =========================================================================
+         CONTAINER PRINCIPAL EM COLUNA ÚNICA (7 SLIDES INDIVIDUAIS EM TELA INTEIRA)
+    ========================================================================== -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 space-y-10">
+
+        <!-- =====================================================================
+             SLIDE 1 — CAPA PRINCIPAL
+        ====================================================================== -->
+        <section id="slide-1" class="presentation-slide min-h-[90vh] flex flex-col justify-between p-7 sm:p-12 lg:p-16 reveal-slide is-visible">
+            
+            <!-- Onda Orgânica Superior Direita -->
+            <svg class="absolute top-0 right-0 w-64 sm:w-96 lg:w-[440px] h-auto pointer-events-none" viewBox="0 0 440 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M160 0C195 68 265 88 320 130C375 172 405 230 440 280V0H160Z" fill="#A2C7EC" fill-opacity="0.65"/>
+                <path d="M250 0C275 55 330 72 372 108C410 140 425 188 440 220V0H250Z" fill="#1651A8"/>
+                <path d="M140 16C185 84 268 96 322 142C372 184 402 232 435 262" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.75" fill="none"/>
+            </svg>
+
+            <!-- Onda Orgânica Inferior Esquerda -->
+            <svg class="absolute bottom-0 left-0 w-64 sm:w-80 lg:w-96 h-auto pointer-events-none" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 60C55 68 105 105 155 142C205 178 260 190 320 200H0V60Z" fill="#A2C7EC" fill-opacity="0.6"/>
+                <path d="M0 112C45 120 88 145 130 172C165 192 205 198 250 200H0V112Z" fill="#1651A8"/>
+            </svg>
+
+            <!-- Estrelas de Quatro Pontas -->
+            <svg class="w-7 h-7 text-navyDeep absolute top-28 left-8 sm:left-16 star-pulse pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C12 7.5 16.5 12 24 12C16.5 12 12 16.5 12 24C12 16.5 7.5 12 0 12C7.5 12 12 7.5 12 0Z"/>
+            </svg>
+            <svg class="w-8 h-8 text-royalBlue absolute top-32 right-24 sm:right-52 star-pulse-delay pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C12 7.5 16.5 12 24 12C16.5 12 12 16.5 12 24C12 16.5 7.5 12 0 12C7.5 12 12 7.5 12 0Z"/>
+            </svg>
+            <svg class="w-5 h-5 text-navyDeep absolute bottom-32 right-12 sm:right-24 star-pulse pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C12 7.5 16.5 12 24 12C16.5 12 12 16.5 12 24C12 16.5 7.5 12 0 12C7.5 12 12 7.5 12 0Z"/>
+            </svg>
+
+            <!-- Topo da Capa -->
+            <div class="relative z-10 flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <span class="w-2.5 h-2.5 rounded-full bg-royalBlue"></span>
+                    <span class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-navyDeep">
+                        Professora de Educação Infantil
+                    </span>
+                    <span class="hidden md:inline-block w-14 h-[2px] bg-navyDeep/30 rounded-full"></span>
+                </div>
+
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navyDeep text-white text-xs sm:text-sm font-bold shadow-md">
+                    <i class="fa-solid fa-sparkles text-skyWave text-xs"></i>
+                    <span>Portfólio Pedagógico</span>
+                </div>
+            </div>
+
+            <!-- Centro: Nome Completo em Destaque Absoluto Sem Texto Atrás -->
+            <div class="relative z-10 my-auto py-10 sm:py-14 flex flex-col items-center justify-center text-center">
+                <h1 class="font-display font-bold tracking-tight leading-[1.08] max-w-5xl mx-auto">
+                    <span class="block text-navyDeep text-4xl sm:text-6xl lg:text-7xl">
+                        Mariana Aparecida
+                    </span>
+                    <span class="block text-royalBlue text-3xl sm:text-5xl lg:text-6xl mt-1.5 sm:mt-2">
+                        Pereira Kxeiaozek
+                    </span>
+                </h1>
+
+                <!-- Assinatura Manuscrita + Coração Desenhado à Mão -->
+                <div class="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-3 px-4">
+                    <span class="font-script text-2xl sm:text-3xl lg:text-4xl text-royalBlue font-bold">
+                        Educar com afeto, escuta e ludicidade
+                    </span>
+                    <svg class="w-8 h-8 sm:w-9 sm:h-9 text-navyDeep shrink-0 float-gentle" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 40C24 40 8 29 8 17.5C8 12.2 12.2 8.5 17 8.5C20.2 8.5 22.8 10.4 24 13C25.2 10.4 27.8 8.5 31 8.5C35.8 8.5 40 12.2 40 17.5C40 29 24 40 24 40Z" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Rodapé da Capa: Barra Centralizada com APENAS 3 Itens -->
+            <div class="relative z-10 flex justify-center">
+                <div class="bg-white/80 backdrop-blur-md border border-white rounded-2xl px-6 py-4 shadow-lg shadow-navyDeep/10 inline-flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 max-w-full">
+                    
+                    <!-- 1) LinkedIn -->
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-xs sm:text-sm font-bold text-navyDeep hover:text-royalBlue transition-colors group">
+                        <span class="w-8 h-8 rounded-full bg-navyDeep group-hover:bg-royalBlue text-white flex items-center justify-center text-xs transition-colors shrink-0">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </span>
+                        <span class="text-center md:text-left">Mariana Aparecida Pereira Kxeiaozek</span>
+                    </a>
+
+                    <span class="hidden md:block w-[1.5px] h-6 bg-navyDeep/20 shrink-0"></span>
+
+                    <!-- 2) E-mail (Clicável para Copiar) -->
+                    <button type="button" onclick="copyEmail()" class="flex items-center gap-3 text-xs sm:text-sm font-bold text-navyDeep hover:text-royalBlue transition-colors group cursor-pointer">
+                        <span class="w-8 h-8 rounded-full bg-navyDeep group-hover:bg-royalBlue text-white flex items-center justify-center text-xs transition-colors shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </span>
+                        <span>mariana.kxeiaozek@email.com</span>
+                    </button>
+
+                    <span class="hidden md:block w-[1.5px] h-6 bg-navyDeep/20 shrink-0"></span>
+
+                    <!-- 3) Instagram -->
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-xs sm:text-sm font-bold text-navyDeep hover:text-royalBlue transition-colors group">
+                        <span class="w-8 h-8 rounded-full bg-navyDeep group-hover:bg-royalBlue text-white flex items-center justify-center text-xs transition-colors shrink-0">
+                            <i class="fa-brands fa-instagram"></i>
+                        </span>
+                        <span>@prof.marianakxeiaozek</span>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             SLIDE 2 — SOBRE MIM
+        ====================================================================== -->
+        <section id="slide-2" class="presentation-slide min-h-[90vh] flex flex-col justify-between p-7 sm:p-12 lg:p-16 reveal-slide">
+            
+            <!-- Onda Superior Direita -->
+            <svg class="absolute top-0 right-0 w-56 sm:w-80 h-auto pointer-events-none" viewBox="0 0 320 200" fill="none">
+                <path d="M100 0C140 50 205 68 255 110C290 138 308 170 320 200V0H100Z" fill="#A2C7EC" fill-opacity="0.55"/>
+                <path d="M190 0C215 40 260 55 295 85C312 100 318 122 320 140V0H190Z" fill="#1651A8"/>
+            </svg>
+
+            <!-- Onda Inferior Esquerda -->
+            <svg class="absolute bottom-0 left-0 w-60 sm:w-80 h-auto pointer-events-none" viewBox="0 0 320 140" fill="none">
+                <path d="M0 40C65 48 125 92 200 140H0V40Z" fill="#A2C7EC" fill-opacity="0.55"/>
+                <path d="M0 82C48 90 92 115 142 140H0V82Z" fill="#062147"/>
+            </svg>
+
+            <!-- Cabeçalho Discreto do Slide -->
+            <div class="relative z-10 flex items-center justify-between text-xs font-extrabold uppercase tracking-widest text-royalBlue">
+                <span>02 • Apresentação</span>
+                <span class="hidden sm:inline text-navyDeep/50">Educação Infantil</span>
+            </div>
+
+            <!-- Conteúdo Principal em Duas Colunas -->
+            <div class="relative z-10 my-auto py-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                
+                <!-- Esquerda: Texto -->
+                <div class="lg:col-span-7 space-y-5">
+                    <div class="flex items-center gap-3">
+                        <h2 class="font-display font-bold text-3xl sm:text-5xl text-navyDeep">
+                            Sobre Mim
+                        </h2>
+                        <!-- Coração desenhado à mão ao lado do título -->
+                        <svg class="w-9 h-9 text-royalBlue shrink-0 star-pulse" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 39C24 39 9 28.5 9 17.5C9 12.5 13 9 17.5 9C20.5 9 23 10.8 24 13.2C25 10.8 27.5 9 30.5 9C35 9 39 12.5 39 17.5C39 28.5 24 39 24 39Z" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <p class="text-sm sm:text-base lg:text-lg text-navyDeep/85 leading-relaxed font-medium">
+                        Sou <strong>Mariana Aparecida Pereira Kxeiaozek</strong>, educadora apaixonada pela primeira infância e pela construção de ambientes acolhedores onde cada criança é ouvida, respeitada e incentivada a explorar o mundo com curiosidade.
+                    </p>
+
+                    <p class="text-sm sm:text-base lg:text-lg text-navyDeep/85 leading-relaxed font-medium">
+                        Minha prática pedagógica é pautada na <strong>BNCC</strong>, na <strong>escuta ativa</strong>, na <strong>documentação pedagógica</strong> sensível e no desenvolvimento integral — articulando afeto, movimento, artes, oralidade e interações significativas no cotidiano escolar.
+                    </p>
+
+                    <div class="pt-2">
+                        <p class="font-script text-2xl sm:text-3xl lg:text-4xl text-royalBlue font-bold">
+                            "Vamos transformar cada descoberta da infância!"
+                        </p>
+                        <svg class="w-52 h-4 text-navyDeep/40 mt-1" viewBox="0 0 210 14" fill="none">
+                            <path d="M2 10C65 2 145 2 208 10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Direita: Moldura em Arco Elegante -->
+                <div class="lg:col-span-5 flex flex-col items-center justify-center">
+                    <div class="relative">
+                        <!-- Estrela de 4 pontas decorativa -->
+                        <svg class="w-7 h-7 text-navyDeep absolute -top-3 -right-4 z-20 star-pulse" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 7.5 16.5 12 24 12C16.5 12 12 16.5 12 24C12 16.5 7.5 12 0 12C7.5 12 12 7.5 12 0Z"/>
+                        </svg>
+
+                        <!-- Arco em tons de azul -->
+                        <div class="w-60 h-72 sm:w-68 sm:h-80 rounded-t-full rounded-b-3xl p-2.5 bg-gradient-to-b from-royalBlue via-skyWave to-navyDeep shadow-2xl">
+                            <div class="w-full h-full rounded-t-full rounded-b-2xl overflow-hidden bg-white">
+                                <img 
+                                    src="https://placehold.co/500x620/1651A8/FFFFFF?text=Prof%C2%AA+Mariana" 
+                                    alt="Foto da Professora Mariana Aparecida Pereira Kxeiaozek"
+                                    onerror="this.onerror=null; this.src='https://placehold.co/500x620/062147/FFFFFF?text=Mariana+Kxeiaozek';"
+                                    class="w-full h-full object-cover object-center"
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="mt-4 px-4 py-1.5 rounded-full bg-white/85 border border-skyWave/60 text-xs font-bold text-navyDeep shadow-xs">
+                        Pedagogia • Educação Infantil
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- Rodapé do Slide -->
+            <div class="relative z-10 flex justify-end">
+                <a href="#slide-3" class="inline-flex items-center gap-2 text-xs font-bold text-navyDeep hover:text-royalBlue transition-colors">
+                    <span>Próximo: Competências</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             SLIDE 3 — MINHAS COMPETÊNCIAS
+        ====================================================================== -->
+        <section id="slide-3" class="presentation-slide min-h-[90vh] flex flex-col justify-between p-7 sm:p-12 lg:p-16 reveal-slide">
+            
+            <!-- Onda Inferior Direita -->
+            <svg class="absolute bottom-0 right-0 w-64 sm:w-96 h-auto pointer-events-none" viewBox="0 0 380 180" fill="none">
+                <path d="M380 30C295 48 235 105 150 180H380V30Z" fill="#A2C7EC" fill-opacity="0.6"/>
+                <path d="M380 82C310 98 262 135 205 180H380V82Z" fill="#1651A8"/>
+            </svg>
+
+            <!-- Estrelas Decorativas -->
+            <svg class="w-7 h-7 text-navyDeep absolute top-10 right-10 star-pulse pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C12 7.5 16.5 12 24 12C16.5 12 12 16.5 12 24C12 16.5 7.5 12 0 12C7.5 12 12 7.5 12 0Z"/>
+            </svg>
+            <svg class="w-4 h-4 text-royalBlue absolute top-18 right-20 star-pulse-delay pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C12 7.5 16.5 12 24 12C16.5 12 12 16.5 12 24C12 16.5 7.5 12 0 12C7.5 12 12 7.5 12 0Z"/>
+            </svg>
+
+            <!-- Cabeçalho -->
+            <div class="relative z-10">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-royalBlue block mb-2">
+                    03 • Saberes & Práticas
+                </span>
+                <h2 class="font-display font-bold text-3xl sm:text-5xl text-navyDeep">
+                    Minhas Competências
+                </h2>
+                <p class="text-sm sm:text-base text-navyDeep/75 font-medium mt-2 max-w-2xl">
+                    Pilares pedagógicos que orientam o planejamento intencional, a observação sensível e o desenvolvimento integral na primeira infância.
+                </p>
+            </div>
+
+            <!-- Centro: Grade 3x2 + Lema Lateral -->
+            <div class="relative z-10 my-auto py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+                
+                <!-- Grade 3x2 de Emblemas Circulares Azuis -->
+                <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8">
+                    
+                    <!-- 1) BNCC -->
+                    <div class="bg-white/75 backdrop-blur-xs rounded-2xl p-5 flex flex-col items-center text-center border border-white shadow-sm hover:-translate-y-1.5 transition-transform duration-300">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-navyDeep text-white flex flex-col items-center justify-center shadow-lg mb-3">
+                            <span class="font-display font-bold text-base sm:text-lg tracking-wide">BNCC</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base text-navyDeep">Campos de Experiência</h3>
+                        <p class="text-xs text-navyDeep/70 mt-1">Planejamento alinhado aos direitos de aprendizagem</p>
+                    </div>
+
+                    <!-- 2) Arte -->
+                    <div class="bg-white/75 backdrop-blur-xs rounded-2xl p-5 flex flex-col items-center text-center border border-white shadow-sm hover:-translate-y-1.5 transition-transform duration-300">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-royalBlue text-white flex flex-col items-center justify-center shadow-lg mb-3">
+                            <i class="fa-solid fa-palette text-xl sm:text-2xl mb-0.5"></i>
+                            <span class="font-display font-bold text-[11px] uppercase">Arte</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base text-navyDeep">Ateliê & Expressão</h3>
+                        <p class="text-xs text-navyDeep/70 mt-1">Múltiplas linguagens plásticas e sonoras</p>
+                    </div>
+
+                    <!-- 3) Ludic -->
+                    <div class="bg-white/75 backdrop-blur-xs rounded-2xl p-5 flex flex-col items-center text-center border border-white shadow-sm hover:-translate-y-1.5 transition-transform duration-300">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-navyDeep text-white flex flex-col items-center justify-center shadow-lg mb-3">
+                            <i class="fa-solid fa-shapes text-xl sm:text-2xl mb-0.5"></i>
+                            <span class="font-display font-bold text-[11px] uppercase">Ludic</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base text-navyDeep">Brincar Heurístico</h3>
+                        <p class="text-xs text-navyDeep/70 mt-1">Exploração livre com materiais não estruturados</p>
+                    </div>
+
+                    <!-- 4) Lit -->
+                    <div class="bg-white/75 backdrop-blur-xs rounded-2xl p-5 flex flex-col items-center text-center border border-white shadow-sm hover:-translate-y-1.5 transition-transform duration-300">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-royalBlue text-white flex flex-col items-center justify-center shadow-lg mb-3">
+                            <i class="fa-solid fa-book-open-reader text-xl sm:text-2xl mb-0.5"></i>
+                            <span class="font-display font-bold text-[11px] uppercase">Lit</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base text-navyDeep">Contação & Leitura</h3>
+                        <p class="text-xs text-navyDeep/70 mt-1">Mediação literária e estímulo à oralidade</p>
+                    </div>
+
+                    <!-- 5) Doc -->
+                    <div class="bg-white/75 backdrop-blur-xs rounded-2xl p-5 flex flex-col items-center text-center border border-white shadow-sm hover:-translate-y-1.5 transition-transform duration-300">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-navyDeep text-white flex flex-col items-center justify-center shadow-lg mb-3">
+                            <i class="fa-solid fa-camera-retro text-xl sm:text-2xl mb-0.5"></i>
+                            <span class="font-display font-bold text-[11px] uppercase">Doc</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base text-navyDeep">Documentação Pedagógica</h3>
+                        <p class="text-xs text-navyDeep/70 mt-1">Registros reflexivos e portfólios individuais</p>
+                    </div>
+
+                    <!-- 6) Afeto -->
+                    <div class="bg-white/75 backdrop-blur-xs rounded-2xl p-5 flex flex-col items-center text-center border border-white shadow-sm hover:-translate-y-1.5 transition-transform duration-300">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-royalBlue text-white flex flex-col items-center justify-center shadow-lg mb-3">
+                            <i class="fa-solid fa-hand-holding-heart text-xl sm:text-2xl mb-0.5"></i>
+                            <span class="font-display font-bold text-[11px] uppercase">Afeto</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base text-navyDeep">Escuta & Acolhimento</h3>
+                        <p class="text-xs text-navyDeep/70 mt-1">Vínculo seguro entre escola, criança e família</p>
+                    </div>
+
+                </div>
+
+                <!-- Lema Lateral -->
+                <div class="lg:col-span-4 lg:border-l-2 border-navyDeep/20 lg:pl-10 flex flex-col items-center lg:items-start text-center lg:text-left justify-center">
+                    <div class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-navyDeep leading-tight space-y-1">
+                        <p>Educar</p>
+                        <p class="text-royalBlue">Acolher</p>
+                        <p>Inspirar</p>
+                    </div>
+                    <svg class="w-36 h-5 text-royalBlue mt-3" viewBox="0 0 150 18" fill="none">
+                        <path d="M4 13C48 3 102 3 146 12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                    <p class="text-xs sm:text-sm text-navyDeep/75 font-medium mt-3 max-w-xs">
+                        Cada detalhe pensado para potencializar a autonomia e o encantamento pelo aprender.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Rodapé do Slide -->
+            <div class="relative z-10 flex justify-end">
+                <a href="#slide-4" class="inline-flex items-center gap-2 text-xs font-bold text-navyDeep hover:text-royalBlue transition-colors">
+                    <span>Próximo: Meus Projetos</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             SLIDE 4 — MEUS PROJETOS
+        ====================================================================== -->
+        <section id="slide-4" class="presentation-slide min-h-[90vh] flex flex-col justify-between p-7 sm:p-12 lg:p-16 reveal-slide">
+            
+            <!-- Onda Inferior Esquerda -->
+            <svg class="absolute bottom-0 left-0 w-64 sm:w-80 h-auto pointer-events-none" viewBox="0 0 320 140" fill="none">
+                <path d="M0 35C70 45 130 92 210 140H0V35Z" fill="#A2C7EC" fill-opacity="0.6"/>
+                <path d="M0 80C52 88 98 115 150 140H0V80Z" fill="#1651A8"/>
+            </svg>
+
+            <!-- Detalhe Gráfico Superior Direito -->
+            <svg class="w-10 h-10 text-navyDeep absolute top-10 right-10 pointer-events-none" viewBox="0 0 40 40" fill="none">
+                <path d="M12 16L7 9M20 14V5M28 17L34 11" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+            </svg>
+
+            <!-- Cabeçalho -->
+            <div class="relative z-10 flex flex-wrap items-end justify-between gap-4">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-royalBlue block mb-2">
+                        04 • Vivências & Sequências Didáticas
+                    </span>
+                    <h2 class="font-display font-bold text-3xl sm:text-5xl text-navyDeep">
+                        Meus Projetos
+                    </h2>
+                </div>
+                <span class="px-4 py-1.5 rounded-full bg-white/85 border border-skyWave text-xs font-bold text-royalBlue shadow-xs">
+                    <i class="fa-solid fa-hand-pointer mr-1.5"></i>Clique em um projeto para abrir o plano completo
+                </span>
+            </div>
+
+            <!-- 3 Cartões Visuais Grandes e Clicáveis Lado a Lado -->
+            <div class="relative z-10 my-auto py-8 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                
+                <!-- Projeto 1 -->
+                <button type="button" onclick="openProject(0)" class="group text-left bg-white/85 rounded-3xl p-4 sm:p-5 border border-white shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-4 focus:ring-royalBlue/30">
+                    <div>
+                        <div class="aspect-[4/3] rounded-2xl bg-gradient-to-br from-navyDeep to-[#0E3A7A] p-6 flex flex-col items-center justify-center text-white relative overflow-hidden mb-5">
+                            <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-xs flex items-center justify-center text-skyWave text-3xl mb-3 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-seedling"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-white/15 text-[11px] font-bold tracking-wider uppercase text-skyWave">
+                                Berçário e Maternal
+                            </span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-navyDeep group-hover:text-royalBlue transition-colors leading-snug">
+                            Vivências Sensoriais & Natureza
+                        </h3>
+                        <p class="text-xs sm:text-sm text-navyDeep/75 mt-2 leading-relaxed">
+                            Exploração tátil, olfativa e visual com elementos naturais, horta sensorial e descobertas ao ar livre.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-3 border-t border-navyDeep/10 flex items-center justify-between text-xs font-bold text-royalBlue">
+                        <span>Ver Plano BNCC</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                    </div>
+                </button>
+
+                <!-- Projeto 2 -->
+                <button type="button" onclick="openProject(1)" class="group text-left bg-white/85 rounded-3xl p-4 sm:p-5 border border-white shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-4 focus:ring-royalBlue/30">
+                    <div>
+                        <div class="aspect-[4/3] rounded-2xl bg-gradient-to-br from-royalBlue to-[#2B6CB0] p-6 flex flex-col items-center justify-center text-white relative overflow-hidden mb-5">
+                            <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-xs flex items-center justify-center text-white text-3xl mb-3 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-white/15 text-[11px] font-bold tracking-wider uppercase text-skyWave">
+                                Pré-Escola
+                            </span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-navyDeep group-hover:text-royalBlue transition-colors leading-snug">
+                            Contação de Histórias & Imaginação
+                        </h3>
+                        <p class="text-xs sm:text-sm text-navyDeep/75 mt-2 leading-relaxed">
+                            Rodas literárias interativas com fantoches, teatro de sombras e criação coletiva de narrativas infantis.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-3 border-t border-navyDeep/10 flex items-center justify-between text-xs font-bold text-royalBlue">
+                        <span>Ver Plano BNCC</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                    </div>
+                </button>
+
+                <!-- Projeto 3 -->
+                <button type="button" onclick="openProject(2)" class="group text-left bg-white/85 rounded-3xl p-4 sm:p-5 border border-white shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-4 focus:ring-royalBlue/30">
+                    <div>
+                        <div class="aspect-[4/3] rounded-2xl bg-gradient-to-br from-skyWave to-[#7BB0E6] p-6 flex flex-col items-center justify-center text-navyDeep relative overflow-hidden mb-5">
+                            <div class="w-16 h-16 rounded-2xl bg-white/80 flex items-center justify-center text-royalBlue text-3xl mb-3 shadow-sm group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-music"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-navyDeep text-[11px] font-bold tracking-wider uppercase text-white">
+                                Educação Infantil
+                            </span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-navyDeep group-hover:text-royalBlue transition-colors leading-snug">
+                            Ateliê de Arte & Musicalização
+                        </h3>
+                        <p class="text-xs sm:text-sm text-navyDeep/75 mt-2 leading-relaxed">
+                            Pintura com pigmentos naturais, ritmo corporal e construção de instrumentos sonoros recicláveis.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-3 border-t border-navyDeep/10 flex items-center justify-between text-xs font-bold text-royalBlue">
+                        <span>Ver Plano BNCC</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                    </div>
+                </button>
+
+            </div>
+
+            <!-- Rodapé do Slide -->
+            <div class="relative z-10 flex justify-end">
+                <a href="#slide-5" class="inline-flex items-center gap-2 text-xs font-bold text-navyDeep hover:text-royalBlue transition-colors">
+                    <span>Próximo: Experiência</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             SLIDE 5 — EXPERIÊNCIA
+        ====================================================================== -->
+        <section id="slide-5" class="presentation-slide min-h-[90vh] flex flex-col justify-between p-7 sm:p-12 lg:p-16 reveal-slide">
+            
+            <!-- Onda Inferior Direita -->
+            <svg class="absolute bottom-0 right-0 w-64 sm:w-96 h-auto pointer-events-none" viewBox="0 0 380 170" fill="none">
+                <path d="M380 30C290 48 230 100 140 170H380V30Z" fill="#A2C7EC" fill-opacity="0.55"/>
+                <path d="M380 85C310 100 265 135 210 170H380V85Z" fill="#062147"/>
+            </svg>
+
+            <!-- Cabeçalho -->
+            <div class="relative z-10">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-royalBlue block mb-2">
+                    05 • Trajetória Docente
+                </span>
+                <div class="flex items-center gap-4">
+                    <h2 class="font-display font-bold text-3xl sm:text-5xl text-navyDeep">
+                        Experiência
+                    </h2>
+                    <span class="w-20 sm:w-28 h-[3px] bg-royalBlue rounded-full"></span>
+                </div>
+            </div>
+
+            <!-- Centro: Linha do Tempo Vertical à Esquerda + Cartões Inclinados à Direita -->
+            <div class="relative z-10 my-auto py-8 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Linha do Tempo Vertical (7 colunas) -->
+                <div class="lg:col-span-7 relative pl-7 border-l-[3px] border-royalBlue space-y-7">
+                    
+                    <!-- Etapa 1 -->
+                    <div class="relative bg-white/80 rounded-2xl p-5 border border-white shadow-sm">
+                        <span class="w-4 h-4 rounded-full bg-royalBlue ring-4 ring-slideBg absolute -left-[37px] top-6"></span>
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                            <h3 class="font-display font-bold text-lg text-navyDeep">
+                                Professora Regente de Educação Infantil
+                            </h3>
+                            <span class="px-3 py-0.5 rounded-full bg-tileBlue text-royalBlue text-xs font-bold">
+                                Atual
+                            </span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-navyDeep/80 leading-relaxed mt-1.5">
+                            Planejamento semanal alinhado aos Campos de Experiência da BNCC, condução de rodas de conversa, mediação de conflitos com afeto, elaboração de relatórios descritivos e parceria contínua com as famílias.
+                        </p>
+                    </div>
+
+                    <!-- Etapa 2 -->
+                    <div class="relative bg-white/80 rounded-2xl p-5 border border-white shadow-sm">
+                        <span class="w-4 h-4 rounded-full bg-navyDeep ring-4 ring-slideBg absolute -left-[37px] top-6"></span>
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                            <h3 class="font-display font-bold text-lg text-navyDeep">
+                                Auxiliar de Desenvolvimento Infantil
+                            </h3>
+                            <span class="px-3 py-0.5 rounded-full bg-tileBlue text-navyDeep text-xs font-bold">
+                                Berçário & Maternal
+                            </span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-navyDeep/80 leading-relaxed mt-1.5">
+                            Apoio integral nas rotinas de cuidado, alimentação, higiene e estimulação sensorial, promovendo a autonomia progressiva e o acolhimento emocional das crianças.
+                        </p>
+                    </div>
+
+                    <!-- Etapa 3 -->
+                    <div class="relative bg-white/80 rounded-2xl p-5 border border-white shadow-sm">
+                        <span class="w-4 h-4 rounded-full bg-skyWave ring-4 ring-slideBg absolute -left-[37px] top-6"></span>
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                            <h3 class="font-display font-bold text-lg text-navyDeep">
+                                Estágio Supervisionado em Pedagogia
+                            </h3>
+                            <span class="px-3 py-0.5 rounded-full bg-tileBlue text-navyDeep text-xs font-bold">
+                                Formação Docente
+                            </span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-navyDeep/80 leading-relaxed mt-1.5">
+                            Observação participante, regência compartilhada, criação de jogos pedagógicos adaptados e projetos interdisciplinares de literatura e musicalização.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Composição Visual de Cartões Pedagógicos Inclinados à Direita (5 colunas) -->
+                <div class="lg:col-span-5 flex items-center justify-center py-4">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80">
+                        <!-- Cartão Fundo Inclinado Esquerda -->
+                        <div class="absolute inset-4 rounded-3xl bg-navyDeep text-white p-6 shadow-xl -rotate-6 flex flex-col justify-between">
+                            <div class="flex justify-between items-center">
+                                <i class="fa-solid fa-graduation-cap text-skyWave text-2xl"></i>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-skyWave">Formação</span>
+                            </div>
+                            <div>
+                                <p class="font-display font-bold text-lg">Licenciatura em Pedagogia</p>
+                                <p class="text-xs text-white/75 mt-1">Especialização e atualização contínua em Primeira Infância</p>
+                            </div>
+                        </div>
+
+                        <!-- Cartão Frente Inclinado Direita -->
+                        <div class="absolute inset-4 rounded-3xl bg-gradient-to-br from-royalBlue to-[#1D63C9] text-white p-6 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-300 flex flex-col justify-between border border-white/30">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-full bg-white/20 text-xs font-bold">Prática Viva</span>
+                                <i class="fa-solid fa-heart text-skyWave"></i>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-2.5 my-3">
+                                <div class="bg-white/15 rounded-xl p-3">
+                                    <i class="fa-solid fa-puzzle-piece text-skyWave text-sm mb-1"></i>
+                                    <p class="text-xs font-bold">Ludicidade</p>
+                                </div>
+                                <div class="bg-white/15 rounded-xl p-3">
+                                    <i class="fa-solid fa-ear-listen text-skyWave text-sm mb-1"></i>
+                                    <p class="text-xs font-bold">Escuta Ativa</p>
+                                </div>
+                                <div class="bg-white/15 rounded-xl p-3">
+                                    <i class="fa-solid fa-users text-skyWave text-sm mb-1"></i>
+                                    <p class="text-xs font-bold">Família & Escola</p>
+                                </div>
+                                <div class="bg-white/15 rounded-xl p-3">
+                                    <i class="fa-solid fa-star text-skyWave text-sm mb-1"></i>
+                                    <p class="text-xs font-bold">Inclusão</p>
+                                </div>
+                            </div>
+
+                            <p class="text-xs font-semibold text-skyWave">
+                                Compromisso com o desenvolvimento pleno de cada criança.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Rodapé do Slide -->
+            <div class="relative z-10 flex justify-end">
+                <a href="#slide-6" class="inline-flex items-center gap-2 text-xs font-bold text-navyDeep hover:text-royalBlue transition-colors">
+                    <span>Próximo: Áreas de Atuação</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             SLIDE 6 — ÁREAS DE ATUAÇÃO
+        ====================================================================== -->
+        <section id="slide-6" class="presentation-slide min-h-[90vh] flex flex-col justify-between p-7 sm:p-12 lg:p-16 reveal-slide">
+            
+            <!-- Onda Inferior Esquerda -->
+            <svg class="absolute bottom-0 left-0 w-64 sm:w-96 h-auto pointer-events-none" viewBox="0 0 380 160" fill="none">
+                <path d="M0 40C85 52 155 100 245 160H0V40Z" fill="#A2C7EC" fill-opacity="0.6"/>
+                <path d="M0 92C65 102 120 132 180 160H0V92Z" fill="#1651A8"/>
+            </svg>
+
+            <!-- Estrela Decorativa -->
+            <svg class="w-8 h-8 text-royalBlue absolute top-12 right-12 star-pulse pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C12 7.5 16.5 12 24 12C16.5 12 12 16.5 12 24C12 16.5 7.5 12 0 12C7.5 12 12 7.5 12 0Z"/>
+            </svg>
+
+            <!-- Cabeçalho -->
+            <div class="relative z-10">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-royalBlue block mb-2">
+                    06 • Frentes Pedagógicas
+                </span>
+                <div class="flex items-center gap-4">
+                    <h2 class="font-display font-bold text-3xl sm:text-5xl text-navyDeep">
+                        Áreas de Atuação
+                    </h2>
+                    <span class="w-20 sm:w-28 h-[3px] bg-royalBlue rounded-full"></span>
+                </div>
+                <p class="text-sm sm:text-base text-navyDeep/75 font-medium mt-3 max-w-2xl">
+                    Atuação versátil e acolhedora em diferentes frentes da Educação Infantil, integrando cuidado, brincadeira e aprendizagem significativa.
+                </p>
+            </div>
+
+            <!-- Centro: 4 Blocos Arredondados em Azul Suave (#DCEAF9) -->
+            <div class="relative z-10 my-auto py-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Bloco 1 -->
+                <div class="bg-tileBlue hover:bg-white rounded-3xl p-7 flex flex-col items-center text-center shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-white/80">
+                    <div class="w-16 h-16 rounded-2xl bg-navyDeep text-white flex items-center justify-center text-2xl mb-5 shadow-md">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg sm:text-xl text-navyDeep mb-2">
+                        Regência de Turma
+                    </h3>
+                    <p class="text-xs sm:text-sm text-navyDeep/75 leading-relaxed">
+                        Condução diária de turmas do Berçário à Pré-Escola com rotinas estruturadas, afetivas e estimulantes.
+                    </p>
+                </div>
+
+                <!-- Bloco 2 -->
+                <div class="bg-tileBlue hover:bg-white rounded-3xl p-7 flex flex-col items-center text-center shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-white/80">
+                    <div class="w-16 h-16 rounded-2xl bg-navyDeep text-white flex items-center justify-center text-2xl mb-5 shadow-md">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg sm:text-xl text-navyDeep mb-2">
+                        Projetos Pedagógicos
+                    </h3>
+                    <p class="text-xs sm:text-sm text-navyDeep/75 leading-relaxed">
+                        Elaboração de sequências didáticas investigativas, feiras culturais e documentação das aprendizagens.
+                    </p>
+                </div>
+
+                <!-- Bloco 3 -->
+                <div class="bg-tileBlue hover:bg-white rounded-3xl p-7 flex flex-col items-center text-center shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-white/80">
+                    <div class="w-16 h-16 rounded-2xl bg-navyDeep text-white flex items-center justify-center text-2xl mb-5 shadow-md">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg sm:text-xl text-navyDeep mb-2">
+                        Contação & Musicalização
+                    </h3>
+                    <p class="text-xs sm:text-sm text-navyDeep/75 leading-relaxed">
+                        Oficinas de leitura dramática, cantigas, expressão corporal e exploração sonora para despertar a criatividade.
+                    </p>
+                </div>
+
+                <!-- Bloco 4 -->
+                <div class="bg-tileBlue hover:bg-white rounded-3xl p-7 flex flex-col items-center text-center shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-white/80">
+                    <div class="w-16 h-16 rounded-2xl bg-navyDeep text-white flex items-center justify-center text-2xl mb-5 shadow-md">
+                        <i class="fa-solid fa-hands-holding-child"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg sm:text-xl text-navyDeep mb-2">
+                        Inclusão & Acolhimento
+                    </h3>
+                    <p class="text-xs sm:text-sm text-navyDeep/75 leading-relaxed">
+                        Adaptação respeitosa de materiais e estratégias para garantir a participação plena de todas as crianças.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Rodapé do Slide -->
+            <div class="relative z-10 flex justify-end">
+                <a href="#slide-7" class="inline-flex items-center gap-2 text-xs font-bold text-navyDeep hover:text-royalBlue transition-colors">
+                    <span>Próximo: Contato</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             SLIDE 7 — CONTATO ("Vamos Trabalhar Juntos!")
+        ====================================================================== -->
+        <section id="slide-7" class="presentation-slide min-h-[90vh] flex flex-col justify-between p-7 sm:p-12 lg:p-16 reveal-slide">
+            
+            <!-- Onda Orgânica Inferior Direita com Coração Desenhado em Branco -->
+            <svg class="absolute bottom-0 right-0 w-64 sm:w-96 h-auto pointer-events-none" viewBox="0 0 380 190" fill="none">
+                <path d="M380 35C290 50 235 108 155 190H380V35Z" fill="#A2C7EC" fill-opacity="0.65"/>
+                <path d="M380 82C305 94 260 135 205 190H380V82Z" fill="#1651A8"/>
+                <path d="M312 158C312 158 294 145 294 132C294 126 298.5 122 303.5 122C307 122 310 124.2 312 127.2C314 124.2 317 122 320.5 122C325.5 122 330 126 330 132C330 145 312 158 312 158Z" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"/>
+            </svg>
+
+            <!-- Cabeçalho + Título Grande em Duas Linhas -->
+            <div class="relative z-10">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-royalBlue block mb-2">
+                    07 • Contato & Oportunidades
+                </span>
+                <div class="inline-flex items-start gap-3">
+                    <div>
+                        <h2 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-navyDeep leading-[1.08]">
+                            Vamos Trabalhar<br>
+                            <span class="text-royalBlue">Juntos!</span>
+                        </h2>
+                        <!-- Sublinhado Curvo Azul Royal -->
+                        <svg class="w-48 sm:w-64 h-6 text-royalBlue mt-2" viewBox="0 0 240 22" fill="none">
+                            <path d="M4 16C72 4 168 4 236 14" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Estrela de Quatro Pontas -->
+                    <svg class="w-8 h-8 sm:w-10 sm:h-10 text-royalBlue star-pulse mt-2 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C12 7.5 16.5 12 24 12C16.5 12 12 16.5 12 24C12 16.5 7.5 12 0 12C7.5 12 12 7.5 12 0Z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Centro: Formulário Rápido à Esquerda + Links Diretos à Direita -->
+            <div class="relative z-10 my-auto py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- Esquerda: Formulário Rápido Funcional -->
+                <div class="lg:col-span-7 bg-white/85 backdrop-blur-xs rounded-3xl p-6 sm:p-8 border border-white shadow-lg">
+                    <form id="portfolio-contact-form" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="contact-name" class="block text-xs font-bold text-navyDeep mb-1.5">Seu Nome *</label>
+                                <input type="text" id="contact-name" required placeholder="Ex: Ana Paula Silva" class="w-full px-4 py-3 rounded-xl bg-slideBg/70 border border-skyWave/60 text-sm text-navyDeep focus:outline-none focus:border-royalBlue focus:bg-white transition-colors">
+                            </div>
+                            <div>
+                                <label for="contact-school" class="block text-xs font-bold text-navyDeep mb-1.5">Escola / Instituição *</label>
+                                <input type="text" id="contact-school" required placeholder="Nome da Escola ou Rede" class="w-full px-4 py-3 rounded-xl bg-slideBg/70 border border-skyWave/60 text-sm text-navyDeep focus:outline-none focus:border-royalBlue focus:bg-white transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="contact-message" class="block text-xs font-bold text-navyDeep mb-1.5">Mensagem *</label>
+                            <textarea id="contact-message" rows="3" required placeholder="Olá Mariana, gostaríamos de conversar sobre uma oportunidade na Educação Infantil..." class="w-full px-4 py-3 rounded-xl bg-slideBg/70 border border-skyWave/60 text-sm text-navyDeep focus:outline-none focus:border-royalBlue focus:bg-white transition-colors resize-none"></textarea>
+                        </div>
+
+                        <div class="flex flex-wrap items-center justify-between gap-4 pt-1">
+                            <button type="submit" class="px-7 py-3.5 rounded-full bg-navyDeep hover:bg-royalBlue text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all inline-flex items-center gap-2.5 cursor-pointer">
+                                <span>Enviar Mensagem</span>
+                                <i class="fa-solid fa-paper-plane text-xs"></i>
+                            </button>
+
+                            <span class="text-xs font-extrabold tracking-wider uppercase text-navyDeep">
+                                Obrigada pela visita <span class="text-royalBlue">♥</span>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Direita: Links Diretos de Contato -->
+                <div class="lg:col-span-5 lg:border-l-2 border-navyDeep/20 lg:pl-10 space-y-4">
+                    <p class="text-sm font-bold text-navyDeep/80 mb-2">
+                        Canais diretos de atendimento:
+                    </p>
+
+                    <!-- E-mail Copiável -->
+                    <button type="button" onclick="copyEmail()" class="w-full bg-white/80 hover:bg-white rounded-2xl p-4 border border-white shadow-sm flex items-center gap-4 text-left group transition-all cursor-pointer">
+                        <span class="w-11 h-11 rounded-full bg-navyDeep group-hover:bg-royalBlue text-white flex items-center justify-center text-base shrink-0 transition-colors">
+                            <i class="fa-solid fa-envelope"></i>
+                        </span>
+                        <div class="min-w-0">
+                            <span class="block text-[11px] font-bold uppercase tracking-wider text-royalBlue">E-mail (Clique para copiar)</span>
+                            <span class="block text-xs sm:text-sm font-bold text-navyDeep truncate">mariana.kxeiaozek@email.com</span>
+                        </div>
+                    </button>
+
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-full bg-white/80 hover:bg-white rounded-2xl p-4 border border-white shadow-sm flex items-center gap-4 group transition-all">
+                        <span class="w-11 h-11 rounded-full bg-navyDeep group-hover:bg-royalBlue text-white flex items-center justify-center text-base shrink-0 transition-colors">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </span>
+                        <div class="min-w-0">
+                            <span class="block text-[11px] font-bold uppercase tracking-wider text-royalBlue">LinkedIn</span>
+                            <span class="block text-xs sm:text-sm font-bold text-navyDeep truncate">Mariana Aparecida Pereira Kxeiaozek</span>
+                        </div>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-full bg-white/80 hover:bg-white rounded-2xl p-4 border border-white shadow-sm flex items-center gap-4 group transition-all">
+                        <span class="w-11 h-11 rounded-full bg-navyDeep group-hover:bg-royalBlue text-white flex items-center justify-center text-base shrink-0 transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </span>
+                        <div class="min-w-0">
+                            <span class="block text-[11px] font-bold uppercase tracking-wider text-royalBlue">Instagram Pedagógico</span>
+                            <span class="block text-xs sm:text-sm font-bold text-navyDeep truncate">@prof.marianakxeiaozek</span>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Rodapé Final -->
+            <div class="relative z-10 flex items-center justify-between text-xs font-bold text-navyDeep/70 pt-2">
+                <span>© 2026 Mariana Aparecida Pereira Kxeiaozek</span>
+                <a href="#slide-1" class="inline-flex items-center gap-1.5 text-navyDeep hover:text-royalBlue transition-colors">
+                    <span>Voltar ao topo</span>
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================================================================
+         MODAL ELEGANTE DE DETALHES DO PROJETO PEDAGÓGICO
+    ========================================================================== -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-navyDeep/70 backdrop-blur-sm">
+        <div class="bg-slideBg rounded-[28px] max-w-2xl w-full p-6 sm:p-9 shadow-2xl border-2 border-white modal-animate relative overflow-hidden max-h-[90vh] overflow-y-auto">
+            
+            <!-- Onda Decorativa -->
+            <svg class="absolute top-0 right-0 w-48 h-auto pointer-events-none" viewBox="0 0 240 130" fill="none">
+                <path d="M80 0C120 40 175 55 240 110V0H80Z" fill="#A2C7EC" fill-opacity="0.45"/>
+            </svg>
+
+            <div class="relative z-10">
+                <div class="flex items-start justify-between gap-4 mb-5">
+                    <div>
+                        <span id="modal-badge" class="inline-block px-3.5 py-1 rounded-full bg-royalBlue text-white text-xs font-bold mb-2">
+                            Faixa Etária
+                        </span>
+                        <h3 id="modal-title" class="font-display font-bold text-2xl sm:text-3xl text-navyDeep">
+                            Título do Projeto
+                        </h3>
+                    </div>
+                    <button type="button" onclick="closeProjectModal()" aria-label="Fechar janela" class="w-10 h-10 rounded-full bg-white text-navyDeep hover:bg-navyDeep hover:text-white flex items-center justify-center shadow-md transition-colors shrink-0 cursor-pointer">
+                        <i class="fa-solid fa-xmark text-base"></i>
+                    </button>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-white/90 rounded-2xl p-4 sm:p-5 border border-skyWave/50">
+                        <h4 class="text-xs font-extrabold uppercase tracking-wider text-royalBlue mb-1.5">
+                            <i class="fa-solid fa-bullseye mr-1.5"></i>Objetivos da BNCC
+                        </h4>
+                        <p id="modal-bncc" class="text-xs sm:text-sm text-navyDeep font-medium leading-relaxed"></p>
+                    </div>
+
+                    <div class="bg-white/90 rounded-2xl p-4 sm:p-5 border border-skyWave/50">
+                        <h4 class="text-xs font-extrabold uppercase tracking-wider text-royalBlue mb-1.5">
+                            <i class="fa-solid fa-Route mr-1.5"></i>Metodologia
+                        </h4>
+                        <p id="modal-methodology" class="text-xs sm:text-sm text-navyDeep font-medium leading-relaxed"></p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white/90 rounded-2xl p-4 sm:p-5 border border-skyWave/50">
+                            <h4 class="text-xs font-extrabold uppercase tracking-wider text-royalBlue mb-1.5">
+                                <i class="fa-solid fa-boxes-stacked mr-1.5"></i>Materiais
+                            </h4>
+                            <p id="modal-materials" class="text-xs sm:text-sm text-navyDeep font-medium leading-relaxed"></p>
+                        </div>
+
+                        <div class="bg-white/90 rounded-2xl p-4 sm:p-5 border border-skyWave/50">
+                            <h4 class="text-xs font-extrabold uppercase tracking-wider text-royalBlue mb-1.5">
+                                <i class="fa-solid fa-award mr-1.5"></i>Resultados Alcançados
+                            </h4>
+                            <p id="modal-results" class="text-xs sm:text-sm text-navyDeep font-medium leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-end">
+                    <button type="button" onclick="closeProjectModal()" class="px-6 py-2.5 rounded-full bg-navyDeep hover:bg-royalBlue text-white text-xs sm:text-sm font-bold transition-colors cursor-pointer">
+                        Fechar Plano Pedagógico
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================================
+         TOAST DE CONFIRMAÇÃO
+    ========================================================================== -->
+    <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-navyDeep text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-skyWave/40 flex items-center gap-3 text-xs sm:text-sm font-bold">
+            <i class="fa-solid fa-circle-check text-skyWave text-base"></i>
+            <span id="toast-message">Confirmado!</span>
+        </div>
+    </div>
+
+    <!-- =========================================================================
+         JAVASCRIPT INTERATIVO
+    ========================================================================== -->
+    <script>
+        // Dados completos dos 3 Projetos Pedagógicos
+        const projectsData = [
+            {
+                badge: "Berçário e Maternal",
+                title: "Vivências Sensoriais & Natureza",
+                bncc: "EI02ET02 — Observar, relatar e descrever incidentes do cotidiano e fenômenos naturais (luz solar, vento, chuva etc.) e EI02CG05 — Desenvolver progressivamente as habilidades manuais.",
+                methodology: "Organização de estações exploratórias ao ar livre e em sala com cestos dos tesouros naturais, cultivo de ervas aromáticas em vasos acessíveis e momentos diários de rega e observação guiada pela curiosidade das crianças.",
+                materials: "Terra vegetal, mudas de hortelã e alecrim, folhas secas, pinhas, pedras lisas, regadores pequenos, lupas infantis e recipientes de madeira.",
+                results: "Ampliação da percepção tátil e olfativa, fortalecimento do vínculo afetivo com o meio ambiente e desenvolvimento da coordenação motora fina e da linguagem oral."
+            },
+            {
+                badge: "Pré-Escola",
+                title: "Contação de Histórias & Imaginação",
+                bncc: "EI03EF03 — Escolher e folhear livros, procurando orientar-se por temas e ilustrações, e EI03EF06 — Produzir suas próprias histórias orais e escritas (escrita espontânea).",
+                methodology: "Rodas literárias semanais utilizando tapete de histórias, fantoches de vara e teatro de sombras. Após a leitura, as crianças recontam a narrativa, criam novos finais e ilustram o livro coletivo da turma.",
+                materials: "Livros ilustrados de literatura infantil brasileira, fantoches de feltro, lanterna para sombras, papéis texturizados, giz de cera e tecido para tenda literária.",
+                results: "Aumento expressivo do vocabulário, maior segurança para falar em grupo, estímulo à imaginação criadora e despertar genuíno pelo hábito da leitura."
+            },
+            {
+                badge: "Educação Infantil",
+                title: "Ateliê de Arte & Musicalização",
+                bncc: "EI03TS01 — Utilizar sons produzidos por materiais, objetos e instrumentos musicais durante brincadeiras de faz de conta, e EI03TS02 — Expressar-se livremente por meio de desenho e pintura.",
+                methodology: "Integração entre artes visuais e música através da produção de tintas naturais com especiarias e alimentos, seguida de pintura livre ao som de diferentes ritmos e confecção de chocalhos e tambores.",
+                materials: "Açafrão, colorau, beterraba, papel kraft de grande formato, pincéis largos, esponjas naturais, potes reutilizáveis, sementes e grãos variados.",
+                results: "Autonomia criativa sem modelos prontos, desenvolvimento da escuta rítmica, cooperação coletiva e valorização das múltiplas expressões artísticas infantis."
+            }
+        ];
+
+        // Abrir Modal do Projeto
+        function openProject(index) {
+            const item = projectsData[index];
+            if (!item) return;
+
+            document.getElementById('modal-badge').textContent = item.badge;
+            document.getElementById('modal-title').textContent = item.title;
+            document.getElementById('modal-bncc').textContent = item.bncc;
+            document.getElementById('modal-methodology').textContent = item.methodology;
+            document.getElementById('modal-materials').textContent = item.materials;
+            document.getElementById('modal-results').textContent = item.results;
+
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        // Fechar Modal do Projeto
+        function closeProjectModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Fechar ao clicar no fundo escuro ou apertar ESC
+        window.addEventListener('click', (event) => {
+            if (event.target.id === 'project-modal') {
+                closeProjectModal();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeProjectModal();
+            }
+        });
+
+        // Exibir Toast de Confirmação
+        function showToast(text) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-message').textContent = text;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+
+            clearTimeout(window.toastTimer);
+            window.toastTimer = setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3200);
+        }
+
+        // Copiar E-mail usando document.execCommand('copy')
+        function copyEmail() {
+            const email = 'mariana.kxeiaozek@email.com';
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999);
+
+            try {
+                document.execCommand('copy');
+                showToast('E-mail copiado: ' + email);
+            } catch (err) {
+                showToast('E-mail: ' + email);
+            }
+
+            document.body.removeChild(tempInput);
+        }
+
+        // Envio do Formulário de Contato
+        document.getElementById('portfolio-contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const sender = document.getElementById('contact-name').value.trim();
+            this.reset();
+            showToast(`Obrigada, ${sender}! Sua mensagem foi enviada para a Profª Mariana.`);
+        });
+
+        // Animação suave de entrada dos slides ao rolar
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.reveal-slide');
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.08 });
+
+            slides.forEach(slide => observer.observe(slide));
+        });
+    </script>
+</body>
+</html>
